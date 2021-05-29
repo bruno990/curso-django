@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'collectfast'
+    'collectfast',
     'django.contrib.staticfiles',
     # 'pypro.base',
 ]
@@ -129,6 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
+COLLECTFAST_ENABLED = False
+
 # STORAGE CONFIGURATION IN S3 AWS
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
@@ -141,6 +143,8 @@ if AWS_ACCESS_KEY_ID:
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_CUSTOM_DOMAIN = None
     AWS_DEFAULT_ACL = 'private'
+
+    COLLECTFAST_ENABLED = True
 
     # Static Assets
     # ------------------------------------------------------------------------------
